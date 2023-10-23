@@ -2,9 +2,7 @@ import requests, os, openai
 
 ''' API REQUEST FROM OPENAI GPT 4'''
 
-#openai.api_key = os.getenv("OPENAI_API_KEY")
-
-openai.api_key = "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"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 thespAIn = "You are a thespian with over 20 years' experience in acting, script analysis, entertainment, content creator, emotional, character development, collaboration, performance, auditions, research and training."
 

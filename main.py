@@ -143,10 +143,10 @@ async def get_chat_history(email: str):
         raise HTTPException(status_code=404, detail="Chat history not found")
     return {"chat_history": chat_history}
 
-@app.delete("/conversation/{conversation_id}")
-async def delete_conversation(conversation_id: str):
+@app.delete("/conversation")
+async def delete_conversation(email: str):
     # Attempt to find the conversation in the database and delete it
-    result = db.chat_history.delete_one({"_id": ObjectId(conversation_id)})
+    result = db.chat_history.delete_one({"_id": ObjectId(email)})
 
     # Check if the conversation was found and deleted
     if result.deleted_count == 1:

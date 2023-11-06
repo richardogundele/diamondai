@@ -13,9 +13,6 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 app = FastAPI()
 
 origins = [ 
-           "https://localhost:5173",
-           "hhtps://localhost:5174",
-           "https://localhost:4173",
            "https://localhost:3000",
            ]
 

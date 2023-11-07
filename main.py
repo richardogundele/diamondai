@@ -128,7 +128,7 @@ async def post_speech(email, file: UploadFile = File(...)):
     message = model(prompt=text_decoded)
     return message
 
-@app.get("/history/")
+@app.get("/chathistory/")
 async def get_chat_history(email: str):
     # Find chat history in MongoDB and convert ObjectId to strings
     chat_history = list(

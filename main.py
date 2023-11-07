@@ -16,7 +16,7 @@ origins = [
            "https://richard-9hla.onrender.com/"
            "https://localhost:5156"
            "https://richard-9hla.onrender.com/"
-           "https://localhost:3000",
+           "https://localhost:4000",
            ]
 
 app.add_middleware( 
@@ -32,7 +32,7 @@ def read_root():
     return {"ThespAIn": "/Welcome To DiamondAI Backend Code"}
 
 # User registration endpoint
-@app.post("/getstarted")
+@app.post("/start")
 async def get_started(email):
     # Check if the email already exists in the database
     existing_user = db.users.find_one({"user_email": email})
@@ -46,7 +46,7 @@ async def get_started(email):
         db.users.insert_one({"user_email": email})
         return {"message": "User Registered successfully"}
 
-@app.post("/thespain")
+@app.post("/thespian")
 async def post_text(email, text):
     message = model(prompt=text, character=thespAIn)
     db.chat_history.insert_one({

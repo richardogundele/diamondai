@@ -13,15 +13,15 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 app = FastAPI()
 
 origins = [
-           "https://richard-9hla.onrender.com/"
-           "https://localhost:5156"
-           "https://richard-9hla.onrender.com/"
+           "https://richard-9hla.onrender.com/",
+           "https://localhost:5156",
+           "https://richard-9hla.onrender.com/",
            "https://localhost:4000",
            ]
 
 app.add_middleware( 
                    CORSMiddleware, 
-                   allow_origins=["*"],
+                   allow_origins=origins,
                    allow_credentials=True,
                    allow_methods=["*"],
                    allow_headers=["*"],

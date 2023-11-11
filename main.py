@@ -7,6 +7,7 @@ from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from gpt4models import *
+from pydantic import EmailStr
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -14,14 +15,13 @@ app = FastAPI()
 
 origins = [
            "https://richard-9hla.onrender.com/",
-           "https://localhost:5156",
-           "https://richard-9hla.onrender.com/",
+           "https://diamond-et14.onrender.com/",
            "https://localhost:4000",
            ]
 
 app.add_middleware( 
                    CORSMiddleware, 
-                   allow_origins=["*"],
+                   allow_origins=origins,
                    allow_credentials=False,
                    allow_methods=["*"],
                    allow_headers=["*"],
@@ -33,7 +33,7 @@ def read_root():
 
 # User registration endpoint
 @app.post("/start")
-async def get_started(email):
+async def get_started(email:EmailStr):
     # Check if the email already exists in the database
     existing_user = db.users.find_one({"user_email": email})
     if existing_user:

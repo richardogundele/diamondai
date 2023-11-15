@@ -48,7 +48,7 @@ async def get_started(email:EmailStr):
 
 @app.post("/thespian")
 async def post_text(email, text):
-    message = model(prompt=text, character=thespAIn)
+    message = model(prompt=text, character=thespain)
     db.chat_history.insert_one({
         "email": email,
         "prompt": text,
@@ -59,7 +59,7 @@ async def post_text(email, text):
 
 @app.post("/medical")
 async def post_text(email, text):
-    message = model(prompt=text, character=medicAI)
+    message = model(prompt=text, character=medicai)
     db.chat_history.insert_one({
         "email": email,
         "prompt": text,
@@ -70,7 +70,7 @@ async def post_text(email, text):
 
 @app.post("/finance")
 async def post_text(email, text):
-    message = model(prompt=text, character=financAI)
+    message = model(prompt=text, character=financai)
     db.chat_history.insert_one({
         "email": email,
         "prompt": text,
@@ -81,7 +81,7 @@ async def post_text(email, text):
 
 @app.post("/psychology")
 async def post_text(email, text):
-    message = model(prompt=text, character=PsychologyAI)
+    message = model(prompt=text, character=Psychologyai)
     db.chat_history.insert_one({
         "email": email,
         "prompt": text,
@@ -92,7 +92,7 @@ async def post_text(email, text):
 
 @app.post("/relationship")
 async def post_text(email, text):
-    message = model(prompt=text, character=RelationshipAI)
+    message = model(prompt=text, character=Relationshipai)
     db.chat_history.insert_one({
         "email": email,
         "prompt": text,
@@ -103,7 +103,7 @@ async def post_text(email, text):
 
 @app.post("/teacher")
 async def post_text(email, text):
-    message = model(prompt=text, character=TeacherAI)
+    message = model(prompt=text, character=Teacherai)
     db.chat_history.insert_one({
         "email": email,
         "prompt": text,

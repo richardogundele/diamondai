@@ -1,7 +1,8 @@
 from database import *
-import openai,os, datetime, json
+import os, datetime, json
 from fastapi import Path
 import pymongo
+from openai import OpenAI
 from bson import ObjectId
 from fastapi import HTTPException
 from fastapi import FastAPI, File, UploadFile, HTTPException
@@ -9,7 +10,7 @@ from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from gpt4models import *
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 app = FastAPI()
 

@@ -1,21 +1,18 @@
 from database import *
-import os, datetime, json
-from fastapi import Path
-import pymongo
-from openai import OpenAI
-from bson import ObjectId
-from fastapi import HTTPException
+import os
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from gpt4models import *
+from openai import OpenAI
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+''' API REQUEST FROM OPENAI GPT 4'''
+
+client = OpenAI(api_key="OPENAI_API_KEY")
 
 app = FastAPI()
 
 # origins = [
-#            "https://richard-9hla.onrender.com/",
 #            "https://diamond-et14.onrender.com/",
 #            "https://localhost:4000",
 #            ]
@@ -48,7 +45,6 @@ async def get_started(email):
         return {"message": "User Registered successfully"}
     
 '''  Thespian App'''
-
 @app.post("/thespian")
 async def post_text(email, text):
     message = model(prompt=text, character=thespAIn)
@@ -284,4 +280,3 @@ async def post_speech(email, file: UploadFile = File(...)):
         raise HTTPException(status_code=400, detail="Failed to decode Audio")    
     message = model(prompt=text_decoded)
     return message
-

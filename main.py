@@ -8,7 +8,7 @@ from openai import OpenAI
 
 ''' API REQUEST FROM OPENAI GPT 4'''
 
-client = OpenAI(api_key="OPENAI_API_KEY")
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 app = FastAPI()
 

@@ -7,7 +7,7 @@ from fastapi import HTTPException
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
-from gpt4 import *
+from gpt4models import *
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 

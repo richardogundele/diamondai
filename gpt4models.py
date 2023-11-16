@@ -1,4 +1,4 @@
-import requests, os, openai
+import requests, os
 from openai import OpenAI
 
 ''' API REQUEST FROM OPENAI GPT 4'''

@@ -25,6 +25,9 @@ def model(prompt, character):
     try:
         response = client.chat.completions.create(model="gpt-4-1106-preview", max_tokens=1000, temperature=0.1, messages= [system, user])
         completion = response.choices[0].message.content
+        
+        if '*' in completion:
+            completion.replace('*','')
       
         return completion
     except Exception as e: 

@@ -23,7 +23,7 @@ def model(prompt, character):
     system = {"role": "system", "content": character}
     user = {"role":"user", "content":prompt}
     try:
-        response = client.chat.completions.create(model="gpt-4-1106-preview", max_tokens=500, temperature=0.1, messages= [system, user])
+        response = client.chat.completions.create(model="gpt-4-1106-preview", max_tokens=1000, temperature=0.1, messages= [system, user])
         completion = response.choices[0].message.content
       
         return completion
